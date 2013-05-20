@@ -1,0 +1,40 @@
+.info,.success,.warning,.error,.validation {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	border: 1px solid;
+	margin: 10px 0px;
+	padding: 10px 10px 10px 50px;
+	background-repeat: no-repeat;
+	background-position: 10px center;
+	display : none;
+	font-weight: bold;
+	line-height: 15px;
+}
+
+.info {
+	color: #00529B;
+	background-color: #BDE5F8;
+	background-image: url('../img/Knob Info.png');
+}
+
+.success {
+	color: #4F8A10;
+	background-color: #DFF2BF;
+	background-image: url('../img/Knob Valid Green.png');
+}
+
+.warning {
+	color: #9F6000;
+	background-color: #FEEFB3;
+	background-image: url('../img/Knob Attention.png');
+}
+
+.error {
+	color: #D8000C;
+	background-color: #FFBABA;
+	background-image: url('../img/Knob Cancel.png');
+}
+
+.shadow {
+	background-color: #F1F1F1;
+}

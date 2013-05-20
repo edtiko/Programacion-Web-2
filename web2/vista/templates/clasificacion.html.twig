@@ -1,0 +1,37 @@
+{% extends "layout.html.twig"  %}
+
+{% block subtitulo %}
+  Consultas
+{% endblock %}
+
+{% block contenido %}
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Grupo</th>
+        <th>Nombre</th>
+        <th>Codigo</th>
+		<th>Facultad</th>
+		<th>Programa</th>
+		<th>Horario Jornada</th>
+        <th>Sede</th>
+		<th>Genero</th>        
+      </tr>
+    </thead>
+    <tbody>
+      {% for e in estudiantes %}
+        <tr>
+          <td>{{e.grupo}}</td>
+          <td>{{e.nombre}}</td>
+          <td>{{e.codigo}}</td>
+		  <td>{{e.id_facultad}}</td>
+		  <td>{{e.id_programa}}</td>
+		  <td>{{e.jornada}}</td>
+		  <td>{{e.sede_universidad}}</td>          
+          <td>{{e.genero}}</a></td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <button type="button" onclick="javascript:history.back(1)" class="btn checkall">Atras</button>
+{% endblock %}

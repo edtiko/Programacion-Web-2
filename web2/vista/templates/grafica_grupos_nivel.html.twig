@@ -1,0 +1,11 @@
+{% extends "layout.html.twig"  %}
+
+{% block subtitulo %}
+  Consultas
+{% endblock %}
+
+{% block contenido %}
+  {% for p in patrones %}
+    {{ p.grupo }} -{{ p.variable }} - {{ p.valor }}<br>
+  {% endfor %}
+{% endblock %}

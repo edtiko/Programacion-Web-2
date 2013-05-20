@@ -1,0 +1,63 @@
+{% extends "layout.html.twig"  %}
+
+{% block subtitulo %}
+  Consultas
+{% endblock %}
+
+{% block contenido %}
+<form action="{{app.url_generator.generate('guardar_clasificacion')}}" method="POST" onsubmit="return validarCargaSeleccionados()">
+<div class="pagination">  
+  {% for key, grupo in estudiantes %}  	
+  <div> 
+  <h3>Grupo ({{key}}) :: Nivel riesgo {{niveles[key]}} - <small>cantidad estudiantes ({{grupo|length}})</small></h3>
+  <table class="table table-striped row{{key}}">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Codigo</th>
+		<th>Facultad</th>		
+		{% if key != 'R' %}
+			<th>Programa</th>
+			<th>Horario Jornada</th>
+        	<th>Sede</th>
+			<th>Genero</th>
+		{% else %}
+			<th class="shadow">Clasificar</th>	
+		{% endif %}	        
+      </tr>
+    </thead>
+    <tbody>
+      {% for e in grupo %}        		
+        <tr>
+		  <input type="hidden" name="estudiantes[]" value="{{key}}-{{e.id_estudiante}}">			
+          <td>{{e.nombre}}</td>
+          <td>{{e.codigo}}</td>
+		  <td>{{e.id_facultad}}</td>		  
+		  {% if key != 'R' %}	  
+			<td>{{e.id_programa}}</td>
+		  	<td>{{e.jornada}}</td>
+		  	<td>{{e.sede_universidad}}</td>          
+          	<td>{{e.genero}}</a></td>
+          {% else %}
+			<td class="shadow">
+            {% for g in e.grupos if g != 'R'%}                      	
+				grupo {{g}}&nbsp;<input type="radio" name="{{key}}-{{e.id_estudiante}}" value="{{g}}">&nbsp;
+			{% endfor %}
+			</td>
+          {% endif %}
+        </tr>
+        
+      {% endfor %}
+    </tbody>
+  </table>
+  </div>
+  {% endfor %}  
+  </div>
+  
+  <div style="clear:both">
+	<button type="button" onclick="javascript:history.back(1)" class="btn checkall">Atras</button>
+	<button type="submit" class="btn">Guardar Clasificacion</button>  
+  </div>	
+</form> 
+{% include 'messages.html.twig' %}
+{% endblock %}

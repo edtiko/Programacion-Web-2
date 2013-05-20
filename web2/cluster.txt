@@ -1,0 +1,11 @@
+Cluster centroids:
+                                       Cluster#
+Attribute                  Full Data          0          1
+                                (14)       (10)        (4)
+==========================================================
+Presion_Arterial               Alta       Alta     Normal
+Urea_en_sangre                Normal     Normal       Baja
+Gota                              Si         Si         No
+Hipotiroidismo                    No         No         Si
+Administrar_tratamiento           Si         Si         Si
+

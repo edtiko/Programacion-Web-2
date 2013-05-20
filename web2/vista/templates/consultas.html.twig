@@ -1,0 +1,65 @@
+{% extends "layout.html.twig"  %}
+
+{% block subtitulo %}
+  Consultas
+{% endblock %}
+
+{% block contenido %}
+    <div class="span9" id="consulta_general">
+          <div class="hero-unit">          	
+            <form action="{{app.url_generator.generate('consulta_estudiantes')}}" method="POST">
+              <fieldset>
+                <legend>Consulte de acuerdo a los parametros del estudiante.</legend>
+                <label>Seleccione los parametros</label>
+
+                <label>Facultad</label>
+                <select name="id_facultad">
+                  <option value=""></option>
+                  {% for f in facultad %}
+                    <option value="{{ f.id_facultad }}"> {{ f.id_facultad }} </option>
+                  {% endfor %}
+                </select>
+
+                <label>Programa</label>
+                <select name="id_programa">
+				  <option value=""></option>
+                  {% for p in programa %}
+                    <option value="{{ p.id_programa }}"> {{ p.id_programa }} </option>
+                  {% endfor %}
+                </select>
+                <br>
+                 <label>Horario Jornada</label>				 
+                 <select name="jornada">
+				  <option value=""></option>
+                  {% for h in horario %}
+                    <option value="{{ h.jornada }}"> {{ h.jornada }} </option>
+                  {% endfor %}
+                </select>
+                <br>
+
+                <label>Sede</label>
+                <select name="sede_universidad">
+				  <option value=""></option>
+                  {% for s in sede %}
+                    <option value="{{ s.sede_universidad }}"> {{ s.sede_universidad }} </option>
+                  {% endfor %}
+                </select>
+                <br>
+                <label>Genero</label>
+                <select name="genero">
+				  <option value=""></option>
+                  {% for g in genero %}
+                    <option value="{{ g.genero }}"> {{ g.genero }} </option>
+                  {% endfor %}
+                </select>
+                
+                <br>
+                <br>
+                <input type="checkbox" name="todos"/> Consultar Todos!
+                <button type="submit" class="btn" onClick="Javascript:consultar();">Ejecutar consulta</button>
+              </fieldset>
+            </form>
+			{% include 'messages.html.twig' %}
+          </div>
+        </div><!--/span-->
+{% endblock %}

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/1">
+        <file>file:/C:/xampp/htdocs/web2/index.php</file>
+        <file>file:/C:/xampp/htdocs/web2/control/autoload.php</file>
+        <file>file:/C:/xampp/htdocs/web2/vista/templates/layout.html.twig</file>
+        <file>file:/C:/xampp/htdocs/web2/vista/templates/index.html.twig</file>
+        <file>file:/C:/xampp/htdocs/web2/vista/templates/consultas.html.twig</file>
+        <file>file:/C:/xampp/htdocs/web2/vista/templates/cargar_archivo.html.twig</file>
+        <file>file:/C:/xampp/htdocs/web2/vista/templates/graficas.html.twig</file>
+        <file>file:/C:/xampp/htdocs/web2/vista/templates/riesgo_bajo.html.twig</file>
+        <file>file:/C:/xampp/htdocs/web2/vista/templates/riesgo_medio.html.twig</file>
+        <file>file:/C:/xampp/htdocs/web2/vista/templates/riesgo_alto.html.twig</file>
+        <file>file:/C:/xampp/htdocs/web2/vista/riesgo/cargar_estudiante.html</file>
+        <file>file:/C:/xampp/htdocs/web2/lib/JqGrid/js/jquery.jqGrid.min.js</file>
+        <file>file:/C:/xampp/htdocs/web2/lib/JqGrid/js/jquery.jqGrid.src.js</file>
+    </open-files>
+</project-private>

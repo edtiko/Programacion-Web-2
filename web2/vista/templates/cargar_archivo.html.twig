@@ -1,0 +1,18 @@
+{% extends "layout.html.twig"  %}
+{% block subtitulo %}
+  Cargar Archivo
+{% endblock %}
+{% block contenido %}
+<div class="span9">
+          <div class="hero-unit">
+            <form  action="" method="" enctype="multipart/form-data">
+              <fieldset>
+                <legend>Cargar el archivo para comenzar el analisis.</legend>
+                <input type="file" placeholder="Seleccione el archivo" name ="filetxt" id="filetxt">
+                <button onClick="" >Subir Archivo</button>
+              </fieldset>
+            </form>
+                  <div id="divtxt"></div>
+          </div>
+        </div>        
+      {% endblock %}  

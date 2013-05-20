@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {% block head %}
+            <meta charset="utf-8">
+            <link href="vista/css/bootstrap.min.css" rel="stylesheet" media="screen">
+            <link href="vista/css/jquery.tablesorter.pager.cs" rel="stylesheet" media="screen">
+            <link href="vista/css/ui.jqgrid.css" rel="stylesheet" media="screen">
+            <link rel="stylesheet" type="text/css" media="screen" href="vista/themes/redmond/jquery-ui-custom.css">
+            <link href="vista/css/ui.multiselect.css" rel="stylesheet" media="screen">
+            <link href="vista/css/todosuniajc.css" rel="stylesheet" media="screen">			
+			<link href="vista/css/pagination.css" rel="stylesheet" media="screen">
+			
+			<script language="javascript" src="vista/js/jquery.js"></script>
+			<script language="javascript" type="text/javascript" src="vista/js/jquery-ui.min.js"></script>
+			<script language="javascript" type="text/javascript" src="vista/js/jquery.tablesorter.js"></script>
+			<script language="javascript" type="text/javascript" src="vista/js/jquery.tablesorter.pager.js"></script>
+			<script type="text/javascript" src="vista/js/jquery.quick.pagination.min.js"></script>
+			<script language="javascript" type="text/javascript" src="vista/js/utilities.js"></script>
+		
+			<script language="javascript" type="text/javascript" src="vista/js/bootstrap.js"></script>        
+			<script language="javascript" type="text/javascript" src="vista/js/cargarArchivo.js"></script>
+			<script language="javascript" type="text/javascript" src="vista/js/d3.v3.js"></script>				                 
+            <title>{% block title %}{% endblock %} - Todos en UNIAJC::Analisis de Riesgo Desercion</title>
+        {% endblock %}
+            <script>
+                function render(plantilla){
+                   
+                    $.ajax({
+                        url: 'index.php',
+                        type: 'post',
+                        data: {plantilla:plantilla},
+                        succes: function(data){
+                               alert(data); 
+                        }
+                    });
+                }
+            </script>
+    </head>
+    <body>
+        <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="brand" href="index.php">Todos en UNIAJC</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li class="active"><a href="{{app.url_generator.generate('inicio')}}">Analisis de Riesgo</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+      <div class="row-fluid">
+        <div class="span3">
+          <div class="well sidebar-nav">
+            <ul class="nav nav-list">
+              <li><a href="{{app.url_generator.generate('inicio')}}">Inicio</a></li>
+              <li class="nav-header">Herramientas</li>
+              <li><a href="{{app.url_generator.generate('consulta')}}">Consultas</a></li>
+              <li><a href="{{app.url_generator.generate('cargar')}}">cargar archivo</a></li>
+              <li><a href="javascript:render()">Cargar estudiante</a></li>
+              <li class="nav-header">Graficas</li>
+              <li ><a href="{{app.url_generator.generate('grafica_grupos_nivel')}}">Grafica de grupos</a></li>
+            </ul>
+          </div><!--/.well -->
+        </div><!--/span-->
+        <div id="content">
+            <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="span9">
+			                   
+             {% block contenido %}
+             {% endblock %}
+                          
+            </div>
+            </div>
+            </div>
+            </div>
+        <div style="clear: both"></div>
+        <hr>
+        <div id="footer">
+            {% block footer %}
+                <p>&copy; UNIAJC 2013</p>
+            {% endblock %}
+        </div>
+    </body>
+</html>

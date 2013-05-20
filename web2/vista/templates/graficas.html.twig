@@ -1,0 +1,45 @@
+{% extends "layout.html.twig" %}
+{% block subtitulo %}
+  Graficas
+{% endblock %}
+   {%block contenido%}
+  <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+      google.load("visualization", "1", {packages:["corechart"]});
+      google.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Grupo 1', 'Riesgo escala',    'Cantidad Casos',        'Riesgo'     ],
+          ['Grupo 2',    80.66,            4,        'Riesgo Alto'      ],
+          ['Grupo 3',    79.84,           14,        'Riesgo Medio'     ],
+          ['Grupo 4',     78.6,           40,        'Riesgo Medio'     ],
+          ['Grupo 5',    72.73,            3,        'Riesgo Bajo'      ],
+          ['Grupo 6',    80.05,            1,        'Riesgo Medio'     ],
+          ['Grupo 7',    72.49,           25,        'Riesgo Bajo'      ],
+          ['Grupo 8',    68.09,           15,        'Riesgo Bajo'      ],
+          ['Grupo 9',    81.55,           10,        'Riesgo Bajo'      ],
+          ['Grupo 10',    68.6,            8,        'Riesgo Medio'     ],
+          ['Grupo 11',   78.09,            9,        'Riesgo Alto'      ]
+        ]);
+
+        var options = {
+          title: 'Informacion Grafica de los Grupos Identificados',
+          hAxis: {title: 'Riesgo escala'},
+          vAxis: {title: 'Cantidad Casos'},
+          bubble: {textStyle: {fontSize: 11}}
+        };
+
+        var chart = new google.visualization.BubbleChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+    <div class="span9">
+          <div class="hero-unit">
+    <form>
+              <fieldset>
+                <div id="chart_div" style="width: 600px; height: 500px;"></div>
+              </fieldset>
+            </form>
+              </div>
+        </div>
+   {%endblock%}

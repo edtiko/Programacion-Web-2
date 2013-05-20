@@ -1,0 +1,58 @@
+{% extends "layout.html.twig"  %}
+
+{% block subtitulo %}
+  Consultas
+{% endblock %}
+
+{% block contenido %}
+<form action="{{app.url_generator.generate('clasificacion')}}" method="POST" id="clasificacionc">
+  <table class="table table-striped tablesorter" id="resultados">
+    <thead>
+      <tr>
+        <th>Analizar</th>
+        <th>Nombre</th>
+        <th>Codigo</th>
+		<th>Facultad</th>
+		<th>Programa</th>
+		<th>Horario Jornada</th>
+        <th>Sede</th>
+		<th>Genero</th>        
+      </tr>
+    </thead>
+    <tbody>
+      {% for e in estudiantes %}
+        <tr>
+          <td><input type="checkbox" name="seleccionados[]" value="{{e.id_estudiante}}"/></td>
+          <td>{{e.nombre}}</td>
+          <td>{{e.codigo}}</td>
+		  <td>{{e.id_facultad}}</td>
+		  <td>{{e.id_programa}}</td>
+		  <td>{{e.jornada}}</td>
+		  <td>{{e.sede_universidad}}</td>          
+          <td>{{e.genero}}</a></td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <div style="clear: both;"></div>
+  <button type="button" onclick="javascript:history.back(1)" class="btn checkall">Atras</button>
+  <button type="button" class="btn checkall">Seleccionar todos</button>
+  <button type="submit" class="btn">Ejecutar clasificacion</button>
+</form>
+ <div id="paginador" class="pager" style="clear: both;">
+    <form>
+      <img src="vista/img/first.png" class="first"/>
+      <img src="vista/img/prev.png" class="prev"/>
+      <input type="text" class="pagedisplay"/>
+      <img src="vista/img/next.png" class="next"/>
+      <img src="vista/img/last.png" class="last"/>
+      <select class="pagesize">
+        <option selected="selected"  value="10">10</option>
+        <option value="20">20</option>
+        <option value="30">30</option>
+        <option  value="40">40</option>
+        <option  value="10000000">Todos</option>
+      </select>
+    </form>
+  </div>
+{% endblock %}
